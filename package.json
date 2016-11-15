@@ -1,17 +1,29 @@
 {
-  "name": "sendhtmlmail",
-  "version": "1.0.0",
-  "description": "small script with configuration to send mail using nodemailer",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "dtardia",
-  "license": "ISC",
-  "dependencies": {
-    "deep-extend": "^0.4.1",
-    "node-uuid": "^1.4.7",
-    "nodemailer": "^2.6.4",
-    "prompt": "^1.0.0"
-  }
+	"name": "sendhtmlmail",
+	"version": "v0.2",
+	"description": "small script with configuration to send mail using nodemailer",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "GizmoWeb",
+	"license": "ISC",
+	"dependencies": {
+		"deep-extend": "^0.4.1",
+		"node-uuid": "^1.4.7",
+		"nodemailer": "^2.6.4",
+		"prompt": "^1.0.0"
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/GizmoWeb/sendhtmlmail.git"
+	},
+	"bugs": {
+		"url": "https://github.com/GizmoWeb/sendhtmlmail/issues"
+	},
+	"homepage": "https://github.com/GizmoWeb/sendhtmlmail#readme",
+	"bin": {
+		"sendhtmlmail": "sendhtmlmail.js"
+	}
 }
