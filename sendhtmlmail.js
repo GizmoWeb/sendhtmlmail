@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 /*jslint devel: true, node: true*/
 var sendhtmlmail = require('./index.js'),
 	path = require('path');
