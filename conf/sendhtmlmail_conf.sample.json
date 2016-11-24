@@ -14,5 +14,7 @@
         }
     },
     "imageBaseURL" : "",
-    "embedCIDDomain" : "dominio.dominio"
+    "embedCIDDomain" : "dominio.dominio",
+	"useImages" : "Y",
+	"embedImages" : "Y"
 }

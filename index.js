@@ -183,6 +183,12 @@ function _readConfigHandler(err, data) {
 		_confFile = data;
 		_configuration = JSON.parse(_confFile);
 		deepExtend(_configuration, _cmdParams);
+		if (_configuration.commandLine === undefined || _configuration.commandLine === null || _configuration.commandLine === false) {
+			prompt.override = {
+				use_images : _configuration.useImages !== undefined && _configuration.useImages !== null ? _configuration.useImages :  'Y',
+				embed_images : _configuration.embedImages !== undefined && _configuration.embedImages !== null ? _configuration.embedImages :  "Y"
+			};
+		}
 		_trace(_configuration);
 		_getPage();
 	}
@@ -197,7 +203,7 @@ function _getConfig() {
 }
 
 function sendhtmlmail(params) {
-	process.stdin.resume();
+	//process.stdin.resume();
 	//catches uncaught exceptions
 	process.on('uncaughtException', _uncaughtExceptionHandler);
 	_cmdParams = params;

@@ -13,7 +13,8 @@ args.forEach(function (element) {
     console.log(element);
 });
 var params = {
-	file : args[args.length - 1]
+	file : args[args.length - 1],
+	commandLine : true
 };
 //console.log(params);
 sendhtmlmail(params);
