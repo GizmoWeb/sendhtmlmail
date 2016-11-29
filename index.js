@@ -5,6 +5,7 @@ var path = require('path'),
 	nodemailer = require('nodemailer'),
 	fs = require('fs'),
 	prompt = require('prompt'),
+	colors = require("colors/safe"),
 	uuid = require('node-uuid'),
 	pkg = require(__dirname + '/package.json'),
 	_appRoot = process.cwd(), //path.resolve(__dirname)
@@ -19,15 +20,15 @@ var path = require('path'),
 			use_images: {
 				name: 'use_images',
 				pattern: /[Y|n|y|N]/,
-				description: 'Invio con immagini? [Y|n]',
-				message: 'Inserire "Y" o "n"',
+				description: 'Send with images? [Y|n]',
+				message: 'Answer "Y" or "n"',
 				required: true
 			},
 			embed_images: {
 				name: 'embed_images',
 				pattern: /[Y|n|y|N]/,
-				description: 'Invio con immagini allegate? [Y|n]',
-				message: 'Inserire "Y" o "n"',
+				description: 'Use attached images? [Y|n]',
+				message: 'Answer "Y" or "n"',
 				required: true
 			}
 		}
@@ -112,6 +113,8 @@ function _replaceAndSetAttachments(match, p1, p2) {
  * @private
  */
 function _prompt() {
+	prompt.message = colors.red("\n --- ");
+	prompt.delimiter = "";
 	prompt.start();
 	var use_images = 'Y',
 		embed_images = 'Y';
@@ -129,7 +132,6 @@ function _prompt() {
 				}
 				embed_images = result.embed_images;
 				if (embed_images.toUpperCase() === 'Y') {
-					//var path = new RegExp('(' + _configuration.imageFolder + ')(([a-z\\.A_Z0-9-]*)(?:\/|)([a-z\\.A_Z0-9-]*))*', 'gi');
 					var path = new RegExp('(' + _configuration.imageFolder + ')(.+\\.[png|gif|jpg|svg]*)', 'igm');
 					_pageHTML = _pageHTML.replace(path, _replaceAndSetAttachments);
 				} else {
@@ -189,7 +191,12 @@ function _readConfigHandler(err, data) {
 				embed_images : _configuration.embedImages !== undefined && _configuration.embedImages !== null ? _configuration.embedImages :  "Y"
 			};
 		}
-		_trace(_configuration);
+		if(_configuration.imageBaseURL !== undefined && _configuration.imageBaseURL !== null && _configuration.imageBaseURL !== ""){
+			_promptSchema.properties.embed_images.description = colors.italic.underline("Image base URL : " + _configuration.imageBaseURL) + colors.red("\n --- ") + _promptSchema.properties.embed_images.description;
+		}
+		_trace("\n");
+		_trace(_configuration)
+		_trace("\n");
 		_getPage();
 	}
 }
@@ -203,8 +210,6 @@ function _getConfig() {
 }
 
 function sendhtmlmail(params) {
-	//process.stdin.resume();
-	//catches uncaught exceptions
 	process.on('uncaughtException', _uncaughtExceptionHandler);
 	_cmdParams = params;
 	_getConfig();
