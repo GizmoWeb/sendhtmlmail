@@ -1,6 +1,6 @@
 # sendhtmlmail Node module
 
-Small script with configuration to send mail using [Nodemailer](https://nodemailer.com/)
+Small script with configuration to send mail using [Nodemailer community version.](https://community.nodemailer.com/)
 
 ## Usage
 
@@ -10,16 +10,27 @@ Install with npm
 
 Command line
 
-	node sendhtmlmail --file /path/to/file.html
-	
+	node sendhtmlmail -f /path/to/file.html
+	node sendhtmlmail --file=/path/to/file.html
+
 Require in your script
 
 	var sendmail = require('sendhtmlmail');
 	sendmail({file:'/path/to/file.html'});
-	
+
 ## Configurations
 
 The script look for `sendhtmlmail.conf` file at `/executionpath/conf` folder. Look for sample conf in `node_modules/sendhtmlmail/conf/sendhtmlmail_conf.sample.json`.
+
+Is also possible to specify an alternative configuration file using `conf` parameter
+
+	node sendhtmlmail -f /path/to/file.html -c /path/to/conf-file.json
+	node sendhtmlmail --file=/path/to/file.html -conf=/path/to/conf-file.json
+
+in you script
+
+	sendmail({file:'/path/to/file.html', conf:/path/to/conf-file.json});
+
 
 * __from__ - The e-mail address of the sender. All e-mail addresses can be plain `'sender@server.com'` or formatted `'"Sender Name" <sender@server.com>'`, see [Nodemailer documentations](https://github.com/nodemailer/nodemailer#e-mail-message-fields) for details
 * __to__ - Comma separated list or an array of recipients e-mail addresses. For now hardcoded for the *Bcc:* field
