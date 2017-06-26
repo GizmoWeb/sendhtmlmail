@@ -167,7 +167,7 @@ let _prompt = () => {
                         let path = new RegExp(
                             '('
                             + _configuration.imageFolder
-                            + ')(.+\\.[png|gif|jpg|svg]*)', 'igm'
+                            + ')(.+?\\.[png|gif|jpg|svg]*)', 'igm'
                         );
                         _pageHTML = _pageHTML.replace(
                             path,
