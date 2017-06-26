@@ -61,3 +61,6 @@ typings/
 
 #test conf
 sendhtmlmail_conf.json
+
+#test-files
+test-*
