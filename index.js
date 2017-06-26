@@ -67,7 +67,7 @@ let _sendMails = () => {
             from: _configuration.from, // sender address
             // to: _configuration.to.join(','), // list of receivers
             bcc: _configuration.to.join(','), // list of receivers
-            subject: _pageHTML.match(/<title>([A-z \-]*)<\/title>/i)[1], // Subject line
+            subject: _pageHTML.match(/<title>(.*?)<\/title>/i)[1], // Subject line
             html: _pageHTML,
             attachments: _attachments,
         };
@@ -80,7 +80,15 @@ let _sendMails = () => {
             return;
         }
         console.warn('Message sent: ' + info.response);
-        _callback(info);
+        if(
+            _callback !== null
+            &&
+            _callback !== undefined
+            &&
+            typeof _callback === 'function'
+        ) {
+            _callback(info);
+        }
     });
 };
 /**
