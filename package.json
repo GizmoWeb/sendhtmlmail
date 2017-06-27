@@ -1,23 +1,25 @@
 {
   "name": "sendhtmlmail",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "small script with configuration to send mail using nodemailer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "npmignore": "npmignore"
   },
   "author": "GizmoWeb",
   "license": "ISC",
   "dependencies": {
-    "deep-extend": "^0.4.1",
+    "deep-extend": "^0.5.0",
     "minimist": "^1.2.0",
     "node-uuid": "^1.4.7",
-    "nodemailer": "^2.6.4",
+    "nodemailer": "^4.0.1",
     "prompt": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-google": "^0.7.1"
+    "eslint": "^4.1.1",
+    "eslint-config-google": "^0.8.0",
+    "npmignore": "^0.2.0"
   },
   "repository": {
     "type": "git",
