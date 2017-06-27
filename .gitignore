@@ -64,3 +64,4 @@ sendhtmlmail_conf.json
 
 #test-files
 test-*
+.smooth-releaserc
