@@ -1,6 +1,6 @@
 # sendhtmlmail Node module
 
-Small script with configuration to send mail using [Nodemailer community version.](https://community.nodemailer.com/)
+Small script with configuration to send mail using [Nodemailer.](https://nodemailer.com/)
 
 ## Usage
 
@@ -10,8 +10,8 @@ Install with npm
 
 Command line
 
-	node sendhtmlmail -f /path/to/file.html
-	node sendhtmlmail --file=/path/to/file.html
+	sendhtmlmail -f /path/to/file.html
+	sendhtmlmail --file=/path/to/file.html
 
 Require in your script
 
@@ -24,8 +24,8 @@ The script look for `sendhtmlmail.conf` file at `/executionpath/conf` folder. Lo
 
 Is also possible to specify an alternative configuration file using `conf` parameter
 
-	node sendhtmlmail -f /path/to/file.html -c /path/to/conf-file.json
-	node sendhtmlmail --file=/path/to/file.html -conf=/path/to/conf-file.json
+	sendhtmlmail -f /path/to/file.html -c /path/to/conf-file.json
+	sendhtmlmail --file=/path/to/file.html -conf=/path/to/conf-file.json
 
 in you script
 
