@@ -21,9 +21,3 @@
 [Full Changelog](https://github.com/GizmoWeb/sendhtmlmail/compare/v0.2...v0.2.1)
 
 ## [v0.2](https://github.com/GizmoWeb/sendhtmlmail/tree/v0.2) (2016-11-15)
-[Full Changelog](https://github.com/GizmoWeb/sendhtmlmail/compare/subject_regex...v0.2)
-
-## [subject_regex](https://github.com/GizmoWeb/sendhtmlmail/tree/subject_regex) (2017-06-26)
-[Full Changelog](https://github.com/GizmoWeb/sendhtmlmail/compare/img_regex...subject_regex)
-
-## [img_regex](https://github.com/GizmoWeb/sendhtmlmail/tree/img_regex) (2017-06-26)
